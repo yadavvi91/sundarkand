@@ -10,7 +10,7 @@ import {
 // import soundVikesh from "https://assets.yadavvi.com/vikesh-june15-2024.aac";
 // import soundPavan from "https://assets.yadavvi.com/pavan-dec23-2023.aac";
 
-import hanumanji from "./assets/hanumanji.jpg";
+// import hanumanji from "./assets/Hanuman_slaying_demons_on_each_side.jpg";
 
 const AudioPlayerWithLyricsAndOutline = () => {
   const [currentTime, setCurrentTime] = useState(0);
@@ -34,6 +34,12 @@ const AudioPlayerWithLyricsAndOutline = () => {
   const AUDIO_SOURCES = {
     vikesh: `${AUDIO_BASE_URL}/vikesh-june15-2024.aac`,
     pavan: `${AUDIO_BASE_URL}/pavan-dec23-2023.aac`
+  };
+
+  // import hanumanji from "./assets/Hanuman_slaying_demons_on_each_side.jpg";
+  const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL;
+  const IMAGE_SOURCES = {
+    hanumanji: `${IMAGE_BASE_URL}/Hanuman_slaying_demons_on_each_side.jpg`
   };
 
   const outline = [
@@ -733,7 +739,7 @@ const AudioPlayerWithLyricsAndOutline = () => {
           <div className="mb-4">
             <div className="w-full h-32 bg-gray-200 mb-4 flex justify-center items-center p-2">
               <div className="h-full w-full bg-gray-200 flex justify-center items-center">
-                <img src={hanumanji} className="max-h-full max-w-full object-contain" alt="Hanumanji" />
+                <img src={IMAGE_SOURCES.hanumanji} className="max-h-full max-w-full object-contain" alt="Hanumanji" />
               </div>
             </div>
             <div className="text-sm text-gray-600 mb-2">

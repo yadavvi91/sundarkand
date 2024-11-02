@@ -7,8 +7,8 @@ import {
   SkipBack,
   SkipForward,
 } from "lucide-react";
-import soundVikesh from "./assets/vikesh-june15-2024.wav";
-import soundPavan from "./assets/pavan-dec23-2024.wav";
+// import soundVikesh from "https://assets.yadavvi.com/vikesh-june15-2024.aac";
+// import soundPavan from "https://assets.yadavvi.com/pavan-dec23-2023.aac";
 
 import hanumanji from "./assets/hanumanji.jpg";
 
@@ -29,6 +29,12 @@ const AudioPlayerWithLyricsAndOutline = () => {
   const progressRef = useRef(null);
   const lyricsContainerRef = useRef(null);
   const outlineContainerRef = useRef(null);
+
+  const AUDIO_BASE_URL = import.meta.env.VITE_AUDIO_BASE_URL;
+  const AUDIO_SOURCES = {
+    vikesh: `${AUDIO_BASE_URL}/vikesh-june15-2024.aac`,
+    pavan: `${AUDIO_BASE_URL}/pavan-dec23-2023.aac`
+  };
 
   const outline = [
     "सुंदरकांड",
@@ -64,27 +70,27 @@ const AudioPlayerWithLyricsAndOutline = () => {
     {
       id: 5,
       text: "हनुमान-विभीषण संवाद",
-      audio: {sound: soundPavan}
+      audio: {sound: AUDIO_SOURCES.pavan}
     },
     {
       id: 9,
       text: "हनुमान द्वारा अशोक वाटिका विध्वंस, अक्ष...",
-      audio: {sound: soundPavan}
+      audio: {sound: AUDIO_SOURCES.pavan}
     },
     {
       id: 14,
       text: "श्रीराम जी को वानरों की सेना के साथ च...",
-      audio: {sound: soundPavan}
+      audio: {sound: AUDIO_SOURCES.pavan}
     },
     {
       id: 19,
       text: "हनुमान द्वारा अशोक वाटिका विध्वंस, अक्ष...",
-      audio: {sound: soundPavan}
+      audio: {sound: AUDIO_SOURCES.pavan}
     },
     {
       id: 21,
       text: "श्रीराम जी को वानरों की सेना के साथ च...",
-      audio: {sound: soundPavan}
+      audio: {sound: AUDIO_SOURCES.pavan}
     }
   ];
 
@@ -715,7 +721,7 @@ const AudioPlayerWithLyricsAndOutline = () => {
         {renderOutline(outline)}
         <div className="flex-grow p-8 overflow-y-auto flex flex-col items-center" ref={lyricsContainerRef}>
           <div className="w-full max-w-[1000px]">
-            <h2 className="text-4xl font-bold mb-8 text-center w-full">सुंदरकाण्‍‍ड़</h2>
+            <h2 className="text-4xl font-bold mb-8 text-center w-full">सुंदरकाण्‍‍ड</h2>
             {renderLyrics()}
             <FootnotesDisplay 
               footnotes={footnotes} 
@@ -777,7 +783,7 @@ const AudioPlayerWithLyricsAndOutline = () => {
               className="w-20"
             />
           </div>
-          <audio ref={audioRef} src={soundPavan} />
+          <audio ref={audioRef} src={AUDIO_SOURCES.pavan} />
         </div>
       </div>
     </div>
